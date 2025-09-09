@@ -1,0 +1,24 @@
+{
+  "name": "pabloguarneros",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack",
+    "spark": "npm run build && python router.py",
+    "spark:watch": "nodemon --watch src --ext ts,tsx --exec \"npm run spark\""
+  },
+  "devDependencies": {
+    "@types/three": "^0.179.0",
+    "three": "^0.179.1",
+    "@types/react": "^19.1.11",
+    "@types/react-dom": "^19.1.7",
+    "nodemon": "^3.1.10",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.9.2",
+    "webpack": "^5.101.2",
+    "webpack-cli": "^6.0.1"
+  },
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

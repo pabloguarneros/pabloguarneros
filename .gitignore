@@ -1,0 +1,12 @@
+data
+data/*
+node_modules/
+.npm
+.env
+.cache
+publish.sh
+.DS_Store
+.testing_server
+publish.py
+router.py
+venv/
