@@ -14,10 +14,6 @@ document.body.appendChild(sidebar);
 const viewer = document.createElement('div');
 viewer.id = 'viewer';
 viewer.style.position = 'fixed';
-viewer.style.left = '100px';
-viewer.style.top = '0';
-viewer.style.right = '0';
-viewer.style.bottom = '0';
 viewer.style.display = 'flex';
 viewer.style.alignItems = 'center';
 viewer.style.justifyContent = 'center';
@@ -43,7 +39,6 @@ drawings.forEach((drawing, idx) => {
     thumb.style.width = '80px';
     thumb.style.height = '80px';
     thumb.style.objectFit = 'cover';
-    thumb.style.marginBottom = '16px';
     thumb.style.cursor = 'pointer';
     thumb.title = drawing.name || `Drawing ${idx + 1}`;
     thumb.style.borderRadius = '8px';
@@ -117,14 +112,17 @@ const message = document.createElement('p');
 message.id = 'support-this-project-message';
 message.className = 'tldr-height';
 message.innerHTML = `
-<p>Hello, my name is Pablo. I'm a writer from Mexico City who likes to draw. These are some of my drawings painted at good times and bad times and just times, I guess?</p>
-<p>My dream is to live in a lighthouse by a grey sand beach. What's your dream?</p>
+<p>Hello, my name is Pablo. I'm a writer from Mexico City who likes to draw. These are some drawings painted at good times and bad times and just times, I guess...</p>
+<br/>
+<p>One day, I want to live in a lighthouse by a grey sand beach. I write for work. I guess I draw to connect.</p>
+<br/>
 <pre style="font-family: inherit; font-size: inherit; margin: 0;">
 moments: List[str] = []
 while i.keep_dreaming():
     life.time += timedelta(minutes=45)
     if i.meet(you):
         break()
+
 moments.extend(a_lifetime_with(you))
 </pre>
 `;
@@ -141,7 +139,7 @@ const links = [
         label: 'Merch',
         emoji: '🦦',
         url: 'https://www.redbubble.com/people/WRNO',
-        desc: 'Visit the store, where you can buy a few... pillow covers?',
+        desc: 'A place where you can buy a few... pillow covers',
     },
 ];
 
