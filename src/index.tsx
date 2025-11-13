@@ -2,8 +2,10 @@ import { drawings } from './media';
 
 
 // --- NEW CODE: Pure HTML/CSS/JS Image Viewer ---
-const DRAWING_HIGH_RES_PATH = '/media/drawings/';
-const DRAWING_LOW_RES_PATH = '/media/drawings_low_res/';
+const s3Bucket = 'pabloguarneros';
+const s3Region = 'us-east-1';
+const DRAWING_HIGH_RES_PATH = 'pabloguarneros/drawings/';
+const DRAWING_LOW_RES_PATH = 'pabloguarneros/drawings_low_res/';
 
 // Create sidebar
 const sidebar = document.createElement('div');
@@ -35,13 +37,13 @@ viewer.appendChild(mainImg);
 // Sidebar thumbnails
 drawings.forEach((drawing, idx) => {
     const thumb = document.createElement('img');
-    thumb.src = DRAWING_LOW_RES_PATH + drawing.name;
+    thumb.src = `https://${s3Bucket}.s3.${s3Region}.amazonaws.com/${DRAWING_LOW_RES_PATH}` + drawing.name;
     thumb.style.width = '80px';
     thumb.style.height = '80px';
     thumb.style.objectFit = 'cover';
     thumb.style.cursor = 'pointer';
     thumb.title = drawing.name || `Drawing ${idx + 1}`;
-    thumb.style.borderRadius = '8px';
+    thumb.style.borderRadius = '3px';
     thumb.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
     thumb.style.transition = 'box-shadow 0.3s, transform 0.3s';
     thumb.onmouseenter = () => {
@@ -54,7 +56,7 @@ drawings.forEach((drawing, idx) => {
     };
     // Preload high-res image
     const highResImg = new Image();
-    highResImg.src = DRAWING_HIGH_RES_PATH + drawing.name;
+    highResImg.src = `https://${s3Bucket}.s3.${s3Region}.amazonaws.com/${DRAWING_HIGH_RES_PATH}` + drawing.name;
 
     thumb.onclick = () => {
         mainImg.style.opacity = '0';
@@ -79,7 +81,7 @@ drawings.forEach((drawing, idx) => {
 
 // Show first image by default
 if (drawings.length > 0) {
-    mainImg.src = DRAWING_HIGH_RES_PATH + drawings[0].name;
+    mainImg.src = `https://${s3Bucket}.s3.${s3Region}.amazonaws.com/${DRAWING_HIGH_RES_PATH}` + drawings[0].name;
     mainImg.onload = () => {
         mainImg.style.opacity = '1';
         mainImg.style.transform = 'scale(1)';
@@ -87,7 +89,7 @@ if (drawings.length > 0) {
 }
 const supportBtn = document.createElement('button');
 supportBtn.id = 'support-this-project-button';
-supportBtn.innerText = '🌌';
+supportBtn.innerText = '🪼';
 supportBtn.title = 'Support This Project';
 document.body.appendChild(supportBtn);
 
@@ -112,7 +114,7 @@ const message = document.createElement('p');
 message.id = 'support-this-project-message';
 message.className = 'tldr-height';
 message.innerHTML = `
-<p>Hello, my name is Pablo. I'm a writer from Mexico City who likes to draw. These are some drawings painted at good times and bad times and just times, I guess...</p>
+<p>Hello, my name is Pablo. I'm a writer from Mexico City who likes to draw. These are some drawings painted at good times and bad times.</p>
 <br/>
 <p>One day, I want to live in a lighthouse by a grey sand beach. I write for work. I guess I draw to connect.</p>
 <br/>
@@ -140,6 +142,12 @@ const links = [
         emoji: '🦦',
         url: 'https://www.redbubble.com/people/WRNO',
         desc: 'A place where you can buy a few... pillow covers',
+    },
+    {
+        label: 'Storyture',
+        emoji: '🪼',
+        url: 'https://www.storyture.com/',
+        desc: 'A fictional world of nonfictional things.',
     },
 ];
 
