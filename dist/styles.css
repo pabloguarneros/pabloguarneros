@@ -11,7 +11,7 @@ body {
     width: 100dvw;
 }
 
-body, button, p, pre {
+body, button, p, pre, a {
     font-family: monospace;
     margin: 0px;
     text-shadow: 0 0 15px #919191;
@@ -45,13 +45,14 @@ body, button, p, pre {
 
 #support-this-project-button {
     position: fixed;
+    background: #16150f;
     bottom: 32px;
+    padding: var(--gaps);
     right: 32px;
     z-index: 1000;
-    font-size: 2.2rem;
-    background: none;
+    font-size: 1.8em;
     border-radius: 6px;
-    border: none;
+    border: 1px solid var(--border-color);
     box-shadow: 0 4px 16px rgb(255 255 255 / 20%);
     cursor: pointer;
     transition: box-shadow 0.3s, transform 0.3s;

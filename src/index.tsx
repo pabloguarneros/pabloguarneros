@@ -89,7 +89,7 @@ if (drawings.length > 0) {
 }
 const supportBtn = document.createElement('button');
 supportBtn.id = 'support-this-project-button';
-supportBtn.innerText = '🪼';
+supportBtn.innerText = 'about';
 supportBtn.title = 'Support This Project';
 document.body.appendChild(supportBtn);
 
@@ -107,26 +107,14 @@ supportCard.appendChild(closeBtn);
 
 const heading = document.createElement('p');
 heading.id = 'support-this-project-heading';
-heading.innerHTML = '<b>get_bio()</b>';
+heading.innerHTML = 'About';
 supportCard.appendChild(heading);
 
 const message = document.createElement('p');
 message.id = 'support-this-project-message';
 message.className = 'tldr-height';
 message.innerHTML = `
-<p>Hello, my name is Pablo. I'm a writer from Mexico City who likes to draw. These are some drawings painted at good times and bad times.</p>
-<br/>
-<p>One day, I want to live in a lighthouse by a grey sand beach. I write for work. I guess I draw to connect.</p>
-<br/>
-<pre style="font-family: inherit; font-size: inherit; margin: 0;">
-moments: List[str] = []
-while i.keep_dreaming():
-    life.time += timedelta(minutes=45)
-    if i.meet(you):
-        break()
-
-moments.extend(a_lifetime_with(you))
-</pre>
+<p>My name is Pablo. I was downloaded in New York, developed in Mexico City, and updated in Seoul, Berlin, Hyderabad, London, Taipei, and Atlanta. I'm currently running in San Francisco.</p><br/><p>I'm a software engineer in practice and a filmmaker in theory. I was wiser when I was younger and once rode a bicycle across America. Then I crashed, hit my head on the pavement, and, well, let's say this is what became of it.</p><br/><p>I believe every person can do science, science can taste like art, and that knowledge exists in the unlikeliest of places.</p><br/><p>I'm currently working on <a href="https://www.storyture.com/" target="_blank">Storyture</a>, a fictional world of nonfictional things.</p>
 `;
 supportCard.appendChild(message);
 
